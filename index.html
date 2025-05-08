@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservita - Login y Registro</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="flying-ufo ufo-1">
+        <div class="flying-ufo-light"></div>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="12" cy="7" rx="7" ry="3" fill="#a88bff"/>
+            <ellipse cx="12" cy="6" rx="3" ry="1" fill="#6b46c1"/>
+            <path d="M5 7C5 7 7 12 12 12C17 12 19 7 19 7" stroke="#a88bff" stroke-width="1"/>
+        </svg>
+    </div>
+    <div class="flying-ufo ufo-2">
+        <div class="flying-ufo-light"></div>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="12" cy="7" rx="7" ry="3" fill="#a88bff"/>
+            <ellipse cx="12" cy="6" rx="3" ry="1" fill="#6b46c1"/>
+            <path d="M5 7C5 7 7 12 12 12C17 12 19 7 19 7" stroke="#a88bff" stroke-width="1"/>
+        </svg>
+    </div>
+    <div class="flying-ufo ufo-3">
+        <div class="flying-ufo-light"></div>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="12" cy="7" rx="7" ry="3" fill="#67e8f9"/>
+            <ellipse cx="12" cy="6" rx="3" ry="1" fill="#0891b2"/>
+            <path d="M5 7C5 7 7 12 12 12C17 12 19 7 19 7" stroke="#67e8f9" stroke-width="1"/>
+        </svg>
+    </div>
+    <div class="flying-ufo ufo-4">
+        <div class="flying-ufo-light"></div>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="12" cy="7" rx="7" ry="3" fill="#a88bff"/>
+            <ellipse cx="12" cy="6" rx="3" ry="1" fill="#6b46c1"/>
+            <path d="M5 7C5 7 7 12 12 12C17 12 19 7 19 7" stroke="#a88bff" stroke-width="1"/>
+        </svg>
+    </div>
+    <div class="planet planet-1"></div>
+    <div class="planet planet-2"></div>
+    <div class="satellite"></div>
+    <div class="rocket">
+        <div class="rocket-trail"></div>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.5 16.5L3 18L4.5 19.5L6 21L7.5 19.5M7.5 16.5L9 18M12 15L15 12M15 12C15 12 20.5 9.5 21 3C14.5 3.5 12 9 12 9M15 12L18 15M16.5 16.5L18 18L19.5 16.5M16.5 19.5L18 21L19.5 19.5M4.5 19.5L3 21" stroke="#a88bff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#a88bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 17L12 22L22 17" stroke="#a88bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="#a88bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Reservita
+        </a>
+        <div class="nav-links">
+            <a href="#">Inicio</a>
+            <a href="#">Nosotros</a>
+            <a href="#">Contacto</a>
+            <a href="#">Objetivo</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="form-container">
+            <div class="construction-line line-1"></div>
+            <div class="construction-line line-2"></div>
+            <div class="construction-line line-3"></div>
+            <div class="construction-line line-4"></div>
+
+
+            <div class="construction-indicator indicator-1">Iniciando construcción...</div>
+            <div class="construction-indicator indicator-2">Ensamblando interfaz...</div>
+            <div class="construction-indicator indicator-3">Configurando campos...</div>
+            <div class="construction-indicator indicator-4">Sistema listo</div>
+
+            
+            <div class="ufo">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="12" cy="7" rx="7" ry="3" fill="#a88bff"/>
+                    <ellipse cx="12" cy="6" rx="3" ry="1" fill="#6b46c1"/>
+                    <path d="M5 7C5 7 7 12 12 12C17 12 19 7 19 7" stroke="#a88bff" stroke-width="1"/>
+                </svg>
+            </div>
+            <div class="ufo-light"></div>
+
+            
+            <div class="tab-container">
+                <button class="tab active" onclick="switchForm('login')">Iniciar Sesión</button>
+                <button class="tab" onclick="switchForm('register')">Registrarse</button>
+            </div>
+
+          
+            <div class="form-content">
+                <form class="login-form active-form">
+                    <div class="form-group">
+                        <label for="login-email">Correo Electrónico</label>
+                        <input type="email" id="login-email" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Contraseña</label>
+                        <input type="password" id="login-password" placeholder="••••••••" required>
+                    </div>
+                    <div class="forgot-password">
+                        <a href="#">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <button type="submit" class="btn">
+                        <span>Iniciar Sesión</span>
+                        <svg class="btn-icon-right" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+
+                    <div class="social-login">
+                        <p>O inicia sesión con</p>
+                        <div class="social-icons">
+                            <div class="social-icon">
+                                <svg fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 0.297C5.37 0.297 0 5.667 0 12.297c0 5.285 3.438 9.771 8.205 11.387.6.111.82-.261.82-.58 0-.287-.011-1.046-.017-2.054-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.996.108-.775.42-1.304.762-1.604-2.665-.303-5.467-1.332-5.467-5.931 0-1.31.469-2.381 1.235-3.221-.123-.303-.535-1.521.117-3.176 0 0 1.008-.322 3.3 1.23a11.46 11.46 0 013.003-.404c1.02.005 2.047.137 3.003.404 2.289-1.552 3.295-1.23 3.295-1.23.655 1.655.243 2.873.12 3.176.77.84 1.233 1.911 1.233 3.221 0 4.61-2.807 5.625-5.48 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.697.825.579C20.565 22.065 24 17.581 24 12.297c0-6.63-5.37-12-12-12"/>
+                                </svg>
+                            </div>
+                    
+                            
+                            <div class="social-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6ZM20 6L12 11L4 6H20ZM20 18H4V8L12 13L20 8V18Z" fill="white"/>
+                                </svg>
+                            </div>
+                            
+                           
+                            <div class="social-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21.8055 10.0415H12V14.0415H17.6515C16.827 16.3275 14.6115 17.875 12 17.875C8.8385 17.875 6.25 15.2865 6.25 12.125C6.25 8.9635 8.8385 6.375 12 6.375C13.5145 6.375 14.8695 6.9565 15.9195 7.897L18.8045 5.012C17.0895 3.4185 14.6845 2.375 12 2.375C6.6165 2.375 2.25 6.7415 2.25 12.125C2.25 17.5085 6.6165 21.875 12 21.875C16.9385 21.875 21.1955 18.3765 21.1955 12.125C21.1955 11.445 21.0645 10.7325 20.953 10.0415H21.8055Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+               
+                <form class="register-form">
+                    <div class="form-group">
+                        <label for="register-name">Nombre Completo</label>
+                        <input type="text" id="register-name" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Correo Electrónico</label>
+                        <input type="email" id="register-email" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Contraseña</label>
+                        <input type="password" id="register-password" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm">Confirmar Contraseña</label>
+                        <input type="password" id="register-confirm" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn">
+                        <span>Crear Cuenta</span>
+                        <svg class="btn-icon-right" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+
+                    <div class="social-login">
+                        <p>O regístrate con</p>
+                        <div class="social-icons">
+                            <div class="social-icon">
+                                <svg fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 0.297C5.37 0.297 0 5.667 0 12.297c0 5.285 3.438 9.771 8.205 11.387.6.111.82-.261.82-.58 0-.287-.011-1.046-.017-2.054-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.996.108-.775.42-1.304.762-1.604-2.665-.303-5.467-1.332-5.467-5.931 0-1.31.469-2.381 1.235-3.221-.123-.303-.535-1.521.117-3.176 0 0 1.008-.322 3.3 1.23a11.46 11.46 0 013.003-.404c1.02.005 2.047.137 3.003.404 2.289-1.552 3.295-1.23 3.295-1.23.655 1.655.243 2.873.12 3.176.77.84 1.233 1.911 1.233 3.221 0 4.61-2.807 5.625-5.48 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.697.825.579C20.565 22.065 24 17.581 24 12.297c0-6.63-5.37-12-12-12"/>
+                                </svg>
+                            </div>
+                            <div class="social-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6ZM20 6L12 11L4 6H20ZM20 18H4V8L12 13L20 8V18Z" fill="white"/>
+                                </svg>
+                            </div>
+                            <div class="social-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21.8055 10.0415H12V14.0415H17.6515C16.827 16.3275 14.6115 17.875 12 17.875C8.8385 17.875 6.25 15.2865 6.25 12.125C6.25 8.9635 8.8385 6.375 12 6.375C13.5145 6.375 14.8695 6.9565 15.9195 7.897L18.8045 5.012C17.0895 3.4185 14.6845 2.375 12 2.375C6.6165 2.375 2.25 6.7415 2.25 12.125C2.25 17.5085 6.6165 21.875 12 21.875C16.9385 21.875 21.1955 18.3765 21.1955 12.125C21.1955 11.445 21.0645 10.7325 20.953 10.0415H21.8055Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <p class="form-switch">
+            <span id="switch-text">¿No tienes una cuenta?</span> 
+            <a href="#" onclick="toggleFormSwitch()">Regístrate</a>
+        </p>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+</html>

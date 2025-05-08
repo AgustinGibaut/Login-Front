@@ -1,0 +1,61 @@
+/* ===== SCROLLBAR ANIMADA CON ESTRELLAS Y DESTELLO DINÁMICO ===== */
+
+@keyframes scrollStars {
+    0%, 100% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100px 100px;
+    }
+}
+
+@keyframes glowingThumb {
+    0% {
+        box-shadow: 0 0 5px var(--text-light);
+    }
+    25% {
+        box-shadow: 0 0 8px var(--primary-light);
+    }
+    50% {
+        box-shadow: 0 0 12px var(--primary);
+    }
+    75% {
+        box-shadow: 0 0 8px var(--primary-light);
+    }
+    100% {
+        box-shadow: 0 0 5px var(--text-light);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scroll-track-bg);
+    border-radius: var(--border-radius-sm);
+    background-image:
+        radial-gradient(var(--scroll-track-stars) 1px, transparent 1px),
+        radial-gradient(var(--primary-glow) 1px, transparent 1px);
+    background-size: 10px 10px;
+    animation: scrollStars 10s linear infinite;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-thumb-bg);
+    border-radius: var(--border-radius-sm);
+    border: 2px solid var(--scroll-thumb-border);
+    animation: glowingThumb 3s ease-in-out infinite;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scroll-thumb-hover-bg);
+    box-shadow: 0 0 15px var(--scroll-thumb-shadow-hover), 0 0 8px var(--text-light);
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scroll-thumb-bg) var(--scroll-track-bg);
+}

@@ -1,0 +1,54 @@
+@import 'variables.css';
+
+
+.register-form .form-group:nth-child(1) {
+    animation-delay: 4s;
+}
+
+.register-form .form-group:nth-child(2) {
+    animation-delay: 4.1s;
+}
+
+.register-form .form-group:nth-child(3) {
+    animation-delay: 4.2s;
+}
+
+.register-form .form-group:nth-child(4) {
+    animation-delay: 4.3s;
+}
+
+.register-form .form-group:nth-child(1)::after {
+    animation-delay: 4.05s;
+}
+
+.register-form .form-group:nth-child(2)::after {
+    animation-delay: 4.15s;
+}
+
+.register-form .form-group:nth-child(3)::after {
+    animation-delay: 4.25s;
+}
+
+.register-form .form-group:nth-child(4)::after {
+    animation-delay: 4.35s;
+}
+
+.register-form .btn {
+    animation-delay: 4.4s, 5s;
+}
+
+.register-form .social-login {
+    animation-delay: 4.5s;
+}
+
+.register-form .social-icon:nth-child(1) {
+    animation-delay: 4.6s;
+}
+
+.register-form .social-icon:nth-child(2) {
+    animation-delay: 4.7s;
+}
+
+.register-form .social-icon:nth-child(3) {
+    animation-delay: 4.8s;
+}

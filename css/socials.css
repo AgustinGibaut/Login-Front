@@ -1,0 +1,680 @@
+@import 'variables.css';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: var(--bg-dark);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: var(--border-radius-round);
+    animation: twinkle var(--duration, 4s) infinite ease-in-out;
+    opacity: var(--opacity, 0.7);
+    animation-delay: var(--delay, 0s);
+}
+
+
+.flying-ufo {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.flying-ufo svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 5px rgba(168, 139, 255, 0.7));
+}
+
+.flying-ufo-light {
+    position: absolute;
+    width: 15px;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(168, 139, 255, 0.8), transparent);
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: var(--border-radius-round);
+    opacity: 0.6;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+.ufo-1 {
+    top: 15%;
+    left: -50px;
+    animation: flyUfo1 20s linear infinite;
+}
+
+.ufo-2 {
+    top: 60%;
+    right: -50px;
+    animation: flyUfo2 25s linear infinite;
+    animation-delay: 5s;
+}
+
+.ufo-3 {
+    top: 30%;
+    right: -50px;
+    animation: flyUfo3 15s linear infinite;
+    animation-delay: 8s;
+}
+
+.ufo-4 {
+    bottom: 20%;
+    left: -50px;
+    animation: flyUfo4 30s linear infinite;
+    animation-delay: 12s;
+}
+
+
+.planet {
+    position: absolute;
+    border-radius: var(--border-radius-round);
+    filter: blur(1px);
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: var(--delay, 0s);
+}
+
+.planet-1 {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at 30% 30%, var(--primary), var(--primary-dark));
+    top: 15%;
+    right: 10%;
+    box-shadow: 0 0 20px var(--primary-glow);
+    --delay: 0.5s;
+}
+
+.planet-2 {
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle at 30% 30%, var(--accent), var(--accent-dark));
+    bottom: 20%;
+    left: 15%;
+    box-shadow: 0 0 15px rgba(103, 232, 249, 0.5);
+    --delay: 1s;
+}
+
+.satellite {
+    position: absolute;
+    width: 120px;
+    height: 40px;
+    border-radius: var(--border-radius-round);
+    background: linear-gradient(45deg, #a88bff20, #6b46c120);
+    border: 1px solid var(--border-color);
+    transform: rotate(-30deg);
+    top: 25%;
+    left: 10%;
+    filter: blur(1px);
+    box-shadow: 0 0 15px rgba(168, 139, 255, 0.2);
+    opacity: 0;
+    animation: orbitSatellite 30s linear infinite, fadeIn 2s ease forwards;
+    animation-delay: 0s, 1.5s;
+}
+
+.rocket {
+    position: absolute;
+    bottom: -100px;
+    right: 15%;
+    opacity: 0;
+    animation: rocketLaunch 4s ease-out forwards;
+    animation-delay: 2s;
+    z-index: 1;
+}
+
+.rocket svg {
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 0 10px var(--primary-glow));
+}
+
+.rocket-trail {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 80px;
+    background: linear-gradient(to top, transparent, var(--primary));
+    border-radius: var(--border-radius-round);
+    z-index: -1;
+    opacity: 0.7;
+}
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideDown 1s ease forwards;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo svg {
+    width: 40px;
+    margin-right: 10px;
+    opacity: 0;
+    animation: rotateLogo 1s ease forwards;
+    animation-delay: 0.5s;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color var(--anim-duration-short) ease;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.nav-links a:nth-child(1) {
+    animation-delay: 0.6s;
+}
+
+.nav-links a:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.nav-links a:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.nav-links a:nth-child(4) {
+    animation-delay: 1.2s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 80px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.form-container {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius-lg);
+    width: 100%;
+    max-width: 450px;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(168, 139, 255, 0.3);
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: scale(0.9);
+    animation: formAppear 1s ease forwards;
+    animation-delay: 1.5s;
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, var(--primary), var(--primary-dark), var(--primary));
+    z-index: -1;
+    border-radius: 25px;
+    opacity: 0;
+    animation: borderGlow 3s infinite alternate, fadeIn 2s ease forwards;
+    animation-delay: 0s, 2s;
+}
+
+
+.construction-line {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    height: 1px;
+    width: 0%;
+    opacity: 0.5;
+    animation: expandLine 2s ease forwards;
+}
+
+.line-1 {
+    top: 0;
+    left: 0;
+    animation-delay: 2.2s;
+}
+
+.line-2 {
+    top: 0;
+    right: 0;
+    animation-delay: 2.4s;
+}
+
+.line-3 {
+    bottom: 0;
+    left: 0;
+    animation-delay: 2.6s;
+}
+
+.line-4 {
+    bottom: 0;
+    right: 0;
+    animation-delay: 2.8s;
+}
+
+
+.construction-indicator {
+    position: absolute;
+    font-size: 12px;
+    color: var(--primary);
+    background: var(--bg-card);
+    padding: 5px 10px;
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+    opacity: 0;
+    z-index: 100;
+    white-space: nowrap;
+}
+
+.indicator-1 {
+    top: -15px;
+    left: 20px;
+    animation: fadeInOut 2s ease;
+    animation-delay: 2s;
+}
+
+.indicator-2 {
+    top: 60px;
+    right: -120px;
+    animation: fadeInOut 2s ease;
+    animation-delay: 3s;
+}
+
+.indicator-3 {
+    bottom: 100px;
+    left: -150px;
+    animation: fadeInOut 2s ease;
+    animation-delay: 4s;
+}
+
+.indicator-4 {
+    bottom: -15px;
+    right: 20px;
+    animation: fadeInOut 2s ease;
+    animation-delay: 5s;
+}
+
+
+.ufo {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    opacity: 0;
+    animation: ufoAppear 1s ease forwards, float 4s ease-in-out infinite;
+    animation-delay: 3s, 4s;
+}
+
+.ufo-light {
+    position: absolute;
+    width: 20px;
+    height: 0;
+    background: linear-gradient(to bottom, rgba(168, 139, 255, 0.8), transparent);
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    border-radius: var(--border-radius-round);
+    opacity: 0;
+    filter: blur(5px);
+    animation: ufoLightGrow 2s ease forwards, pulse 2s ease-in-out infinite;
+    animation-delay: 3.5s, 5.5s;
+}
+
+
+.tab-container {
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.tab-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(168, 139, 255, 0.2), transparent);
+    transform: translateX(-100%);
+    animation: tabScan 2s ease-in-out;
+    animation-delay: 3s;
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+    color: var(--text-light);
+    font-weight: bold;
+    position: relative;
+    transition: all var(--anim-duration-short) ease;
+    background: transparent;
+    border: none;
+    outline: none;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.tab:nth-child(1) {
+    animation-delay: 3.2s;
+}
+
+.tab:nth-child(2) {
+    animation-delay: 3.4s;
+}
+
+.tab.active {
+    color: var(--primary);
+}
+
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--primary);
+    animation: tabIndicator 0.5s ease forwards;
+    animation-delay: 3.6s;
+}
+
+.form-content {
+    padding: 30px;
+    position: relative;
+}
+
+.form-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(168, 139, 255, 0.2), transparent);
+    opacity: 0;
+    animation: formScan 2s ease-in-out;
+    animation-delay: 3.8s;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: slideUp 0.5s ease forwards;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    color: var(--text-light);
+    font-size: 16px;
+    transition: all var(--anim-duration-short) ease;
+    position: relative;
+}
+
+.form-group input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 2px rgba(168, 139, 255, 0.5);
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+.form-group::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background: var(--primary);
+    opacity: 0.5;
+    animation: buildLine 1s ease forwards;
+}
+
+
+.btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+    border: none;
+    border-radius: var(--border-radius-md);
+    color: var(--text-light);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all var(--anim-duration-short) ease;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px var(--primary-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards, buttonPulse 2s infinite alternate;
+    animation-delay: 4.6s, 5s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--primary-shadow-hover);
+    background: linear-gradient(45deg, var(--primary-light), var(--primary));
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-icon-right {
+    margin-left: 5px;
+    animation: moveRight 1.5s infinite alternate;
+}
+
+/* Social login común */
+.social-login {
+    margin-top: 30px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: 4.8s;
+}
+
+.social-login p {
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.social-login p::before,
+.social-login p::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 0%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: expandDivider 1s ease forwards;
+    animation-delay: 5s;
+}
+
+.social-login p::before {
+    left: 0;
+}
+
+.social-login p::after {
+    right: 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: var(--border-radius-round);
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--anim-duration-short) ease;
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: popIn 0.5s ease forwards;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.social-icon:hover {
+    background: rgba(168, 139, 255, 0.3);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 6px 15px rgba(168, 139, 255, 0.4);
+}
+
+.social-icon svg {
+    color: var(--text-light);
+    width: 20px;
+    height: 20px;
+}
+
+.form-switch {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--text-muted);
+    font-size: 14px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: 5.8s;
+}
+
+.form-switch a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color var(--anim-duration-short) ease;
+    padding: 5px 10px;
+    border-radius: var(--border-radius-lg);
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.form-switch a:hover {
+    color: var(--text-light);
+    background: rgba(168, 139, 255, 0.2);
+    box-shadow: 0 0 10px rgba(168, 139, 255, 0.3);
+}
+
+.login-form, .register-form {
+    display: none;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.active-form {
+    display: block;
+}
